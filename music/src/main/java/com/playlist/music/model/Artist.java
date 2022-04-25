@@ -1,5 +1,6 @@
 package com.playlist.music.model;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -27,8 +28,8 @@ public class Artist {
 	@Column(name="last_name")
 	private String lastName;
 	
-	@OneToMany (mappedBy= "artists")
-	private Set<Music> song;
+	@OneToMany ( mappedBy= "artists")
+	private List<Music> song;
 
 	public Long getId() {
 		return id;
@@ -54,13 +55,7 @@ public class Artist {
 		this.lastName = lastName;
 	}
 
-	public Set<Music> getSong() {
-		return song;
-	}
 
-	public void setSong(Set<Music> song) {
-		this.song = song;
-	}
 	
 	
 }
