@@ -55,6 +55,12 @@ public class Artist {
 		this.lastName = lastName;
 	}
 
+	public Artist() {
+		super();
+		
+	
+	}
+
 
 	
 	
