@@ -23,6 +23,11 @@ public class MusicService {
 		return musicRepository.findAll();
 	}
 	
+	//GET REQUEST BY ID
+	public Music getSong(Long songId) {
+		return musicRepository.getById(songId);
+	}
+	
 	//POST REQUEST
 	public Music addSong(Music song) {
 		return musicRepository.save(song);
@@ -41,6 +46,13 @@ public class MusicService {
 		currentSong.setGenre(song.getGenre());
 		currentSong.setArtists(song.getArtists());
 		currentSong.setDurationInSeconds(song.getDurationInSeconds());
+		return musicRepository.save(currentSong);
+	}
+	
+	//PATCH REQUEST
+	public Music patchSong(Long songId, String name) {
+		Music currentSong = musicRepository.findById(songId).get();
+		currentSong.setName(name);
 		return musicRepository.save(currentSong);
 	}
 }
